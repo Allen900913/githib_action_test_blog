@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}  # 設定 HTML <title>
+  Blog專題 - 登錄
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <form method="POST" class="form-signin">
+        {{ form.hidden_tag() }}
+        <h1 class="h3 mb-3 font-weight-normal">
+            Blog專題員登錄
+        </h1>
+        <br>
+
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placeholder="輸入用戶名") }}
+
+        {{ form.password.label() }}
+        {{ form.password(class="form-control", placeholder="輸入密碼") }}
+
+        <br>
+
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+    </form>
+</div>
+{% endblock %}

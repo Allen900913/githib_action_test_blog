@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+    {% if is_edit %}
+        編輯文章
+    {% else %}
+        新增文章
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+<style>
+  .content_height {
+      height: 550px;
+  }
+</style>
+
+<div class="container-fluid px-4 py-4">
+  <form method="POST" class="form-signin">
+    {{ form.hidden_tag() }}
+
+    <h1 class="h3 mb-3 font-weight-normal">
+        {% if is_edit %}
+            編輯文章
+        {% else %}
+            新增文章
+        {% endif %}
+    </h1>
+    <br>
+    {{ form.title.label() }}
+    {{ form.title(class="form-control", placeholder="輸入標題") }}
+
+    <div class="row">
+        <div class="col">
+            {{ form.content.label() }}
+            {{ form.content(class="form-control content_height", placeholder="輸入文章內容") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <a href="#" id="article_preview_btn" class="btn btn-lg btn-block btn-primary">查看預覽</a>
+        </div>
+        <div class="col">
+            文章預覽
+            <div class="container-fluid border border-success">
+                <div id="article_preview" class="content_height" style="overflow: auto;"></div>
+            </div>
+        </div>
+    </div>
+    
+  </form>
+</div>
+<script src="/assets/js/editarticle.js"></script>
+{% endblock %}

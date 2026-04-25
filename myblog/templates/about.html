@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+
+{% block title %}
+關於 MyBlog - 專案介紹
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- 專案標題 -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">MyBlog 部落格系統</h1>
+        <p class="lead text-muted">基於 Flask 開發的現代化個人部落格平台</p>
+        <hr class="my-4">
+    </div>
+
+    <!-- 功能特色 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-stars text-warning"></i> 功能特色
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">📝 Markdown 支援</h5>
+                        <p class="card-text">使用 Showdown.js 實現 Markdown 即時預覽，讓文章撰寫更加便捷高效。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">🔐 安全認證</h5>
+                        <p class="card-text">採用 bcrypt 密碼加密、CSRF 防護和 Session 管理，確保系統安全性。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">🖼️ 圖片管理</h5>
+                        <p class="card-text">支援圖片上傳、預覽和管理，輕鬆為文章添加視覺元素。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">📱 響應式設計</h5>
+                        <p class="card-text">基於 Bootstrap 5 框架，完美支援桌面、平板和手機等各種設備。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技術架構 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-stack text-info"></i> 技術架構
+        </h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card border-primary h-100">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">後端技術</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Flask 3.1.2</strong> - Web 框架</li>
+                        <li class="list-group-item"><strong>SQLAlchemy</strong> - ORM 資料庫操作</li>
+                        <li class="list-group-item"><strong>Flask-Login</strong> - 用戶認證</li>
+                        <li class="list-group-item"><strong>Flask-WTF</strong> - 表單處理與 CSRF 防護</li>
+                        <li class="list-group-item"><strong>bcrypt</strong> - 密碼加密</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card border-success h-100">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">前端技術</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Bootstrap 5.3.2</strong> - UI 框架</li>
+                        <li class="list-group-item"><strong>jQuery 3.7.1</strong> - JavaScript 函式庫</li>
+                        <li class="list-group-item"><strong>Showdown.js 2.0.0</strong> - Markdown 渲染</li>
+                        <li class="list-group-item"><strong>HTML5 / CSS3</strong> - 網頁標準</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card border-warning h-100">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">部署方案</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>MySQL 8.0</strong> - 關聯式資料庫</li>
+                        <li class="list-group-item"><strong>Docker</strong> - 容器化技術</li>
+                        <li class="list-group-item"><strong>Docker Compose</strong> - 多容器編排</li>
+                        <li class="list-group-item"><strong>Docker Volume</strong> - 資料持久化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 系統架構 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-diagram-3 text-danger"></i> 系統架構
+        </h2>
+        <div class="card shadow">
+            <div class="card-body">
+                <h5 class="card-title">三層架構設計</h5>
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="text-primary">Routes Layer（路由層）</h6>
+                            <ul class="small mb-0">
+                                <li>user_routes.py - 前台功能</li>
+                                <li>admin_routes.py - 後台管理</li>
+                                <li>處理 HTTP 請求與回應</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="text-success">Services Layer（服務層）</h6>
+                            <ul class="small mb-0">
+                                <li>user_service.py - 用戶邏輯</li>
+                                <li>article_service.py - 文章邏輯</li>
+                                <li>image_service.py - 圖片邏輯</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="text-danger">Models Layer（模型層）</h6>
+                            <ul class="small mb-0">
+                                <li>user.py - 用戶模型</li>
+                                <li>article.py - 文章模型</li>
+                                <li>資料庫結構定義</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-gear text-secondary"></i> 核心功能
+        </h2>
+        <div class="accordion" id="featuresAccordion">
+            <!-- 用戶管理 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#user-management">
+                        👤 用戶管理系統
+                    </button>
+                </h2>
+                <div id="user-management" class="accordion-collapse collapse show" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>安全的登入/登出機制</li>
+                            <li>bcrypt 密碼加密儲存</li>
+                            <li>Session 狀態管理</li>
+                            <li>@login_required 裝飾器保護路由</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 文章管理 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#article-management">
+                        📄 文章管理系統
+                    </button>
+                </h2>
+                <div id="article-management" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>完整的 CRUD 操作（新增、讀取、更新、刪除）</li>
+                            <li>Markdown 編輯器與即時預覽</li>
+                            <li>同時儲存 Markdown 原始碼和 HTML 格式</li>
+                            <li>文章列表分頁顯示</li>
+                            <li>文章建立/更新時間記錄</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 圖片管理 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#image-management">
+                        🖼️ 圖片管理系統
+                    </button>
+                </h2>
+                <div id="image-management" class="accordion-collapse collapse" data-bs-parent="#featuresAccordion">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>圖片上傳功能（支援常見格式）</li>
+                            <li>自動產生唯一檔名（時間戳記）</li>
+                            <li>圖片預覽與管理介面</li>
+                            <li>檔案儲存於 data/images 目錄</li>
+                            <li>可在文章編輯器中直接引用</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 安全機制 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-shield-check text-success"></i> 安全機制
+        </h2>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-success" role="alert">
+                    <h5 class="alert-heading">✅ 密碼安全</h5>
+                    <p>使用 bcrypt 進行密碼加密，加入隨機 salt，即使資料庫洩漏也無法還原明文密碼。</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-info" role="alert">
+                    <h5 class="alert-heading">✅ CSRF 防護</h5>
+                    <p>所有 POST 請求都需要 CSRF Token 驗證，防止跨站請求偽造攻擊。</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-warning" role="alert">
+                    <h5 class="alert-heading">✅ SQL 注入防護</h5>
+                    <p>使用 SQLAlchemy ORM 進行參數化查詢，避免 SQL 注入風險。</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <div class="alert alert-danger" role="alert">
+                    <h5 class="alert-heading">✅ Session 管理</h5>
+                    <p>Flask-Login 處理用戶 Session，自動管理登入狀態和權限控制。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 部署方案 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-cloud-upload text-primary"></i> 部署方案
+        </h2>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Docker 容器化部署</h5>
+                <p class="card-text">使用 Docker Compose 進行多容器編排，實現一鍵部署：</p>
+                <ul>
+                    <li><strong>myblog_server</strong> - Flask 應用容器（Port 80:8080）</li>
+                    <li><strong>mysql_server</strong> - MySQL 8.0 資料庫容器</li>
+                    <li><strong>mysql_data</strong> - 資料庫資料持久化 Volume</li>
+                    <li><strong>myblog_data</strong> - 圖片檔案持久化 Volume</li>
+                </ul>
+                <div class="bg-dark text-light p-3 rounded mt-3">
+                    <code>
+                        # 一鍵啟動<br>
+                        docker-compose up -d<br><br>
+                        # 查看運行狀態<br>
+                        docker-compose ps<br><br>
+                        # 停止服務<br>
+                        docker-compose down
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 開發者資訊 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-person-badge text-dark"></i> 專案資訊
+        </h2>
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>📌 專案目標</h5>
+                        <p>建立一個功能完整、安全可靠的個人部落格系統，展示全端開發能力。</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>🎯 技術亮點</h5>
+                        <ul>
+                            <li>三層架構設計</li>
+                            <li>RESTful API 設計原則</li>
+                            <li>Docker 容器化部署</li>
+                            <li>完整的安全機制</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>🔮 未來規劃</h5>
+                        <ul class="mb-0">
+                            <li>文章分類與標籤系統</li>
+                            <li>全文搜尋功能</li>
+                            <li>評論留言系統</li>
+                            <li>RSS 訂閱功能</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>📝 預設帳號</h5>
+                        <p class="mb-0">
+                            <strong>用戶名:</strong> root<br>
+                            <strong>密碼:</strong> 123456<br>
+                            <em class="text-danger small">（請在正式環境中修改預設密碼）</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 快速開始 -->
+    <section class="mb-5">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-rocket-takeoff text-success"></i> 快速開始
+        </h2>
+        <div class="card border-success">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">本地開發環境設置</h5>
+            </div>
+            <div class="card-body">
+                <ol>
+                    <li class="mb-2">
+                        <strong>克隆專案</strong>
+                        <pre class="bg-light p-2 rounded"><code>git clone &lt;repository-url&gt;
+cd myblog</code></pre>
+                    </li>
+                    <li class="mb-2">
+                        <strong>建立虛擬環境</strong>
+                        <pre class="bg-light p-2 rounded"><code>python -m venv myenv
+myenv\Scripts\activate  # Windows
+source myenv/bin/activate  # Linux/Mac</code></pre>
+                    </li>
+                    <li class="mb-2">
+                        <strong>安裝依賴套件</strong>
+                        <pre class="bg-light p-2 rounded"><code>pip install -r requirements.txt</code></pre>
+                    </li>
+                    <li class="mb-2">
+                        <strong>啟動應用程式</strong>
+                        <pre class="bg-light p-2 rounded"><code>python main.py</code></pre>
+                    </li>
+                    <li>
+                        <strong>訪問應用</strong>
+                        <p class="mb-0">在瀏覽器中打開 <a href="http://localhost:8080" target="_blank">http://localhost:8080</a></p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- 聯絡資訊 -->
+    <section class="text-center">
+        <h2 class="h3 mb-4">
+            <i class="bi bi-envelope text-primary"></i> 聯絡方式
+        </h2>
+        <p class="lead">如有任何問題或建議，歡迎聯絡我！</p>
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="https://github.com/yourusername" class="btn btn-outline-dark" target="_blank">
+                <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="mailto:your.email@example.com" class="btn btn-outline-primary">
+                <i class="bi bi-envelope-fill"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" class="btn btn-outline-info" target="_blank">
+                <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- 需要 Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}

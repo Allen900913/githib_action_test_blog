@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}  # 設定 HTML <title>
+  Blog專題 - 圖片管理
+{% endblock %}
+
+{% block content %}
+<div class="container-xl">
+    <form method="POST" class="form-signin" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <h1 class="h3 mb-3 font-weight-normal">
+            圖片上傳
+        </h1>
+        <br>
+
+        {{ form.image_file.label() }}
+        {{ form.image_file(class="form-control", placeholder="選擇圖片") }}
+        <br>
+        {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+    </form>
+    <hr />
+    <div class="row">
+        {% if image_filenames %}
+            {% for image_file in image_filenames %}
+            <div class="col-md-3">
+                <b>/image/{{ image_file }}</b>
+                <img src="/image/{{ image_file }}" 
+                    class="img-thumbnail my-2" 
+                    alt="200x200" 
+                    style="width: 300px; height: 200px;" />
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
+</div>
+{% endblock %}
