@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
+from urllib.parse import quote_plus
 
 MYSQL_HOST = os.getenv("MYSQL_HOST", "localhost")
 MYSQL_PORT = os.getenv("MYSQL_PORT", "3306")
@@ -16,7 +17,10 @@ app = Flask(__name__ ,
             static_url_path='/assets'
             )
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+mysqldb://{MYSQL_USER}:{MYSQL_PWD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}'
+db_password = quote_plus(MYSQL_PWD)
+db_uri = f'mysql+pymysql://{MYSQL_USER}:{db_password}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ec9439cfc6c796ae2029594d'
 

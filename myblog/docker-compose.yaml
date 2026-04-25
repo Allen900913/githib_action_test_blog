@@ -1,14 +1,19 @@
 services:
   myblog_server:
+    build:
+      context: .
     image: ghcr.io/allen900913/githib_action_test_blog:latest
     container_name: myblog_server
+    restart: on-failure
     ports:
       - "80:8080"
     environment:
       MYSQL_HOST: mysql_server
       MYSQL_DB: myblog_db
-      MYSQL_USER: root
-      MYSQL_PWD: nevertellyou
+      MYSQL_USER: myblog_user
+      MYSQL_PWD: myblog_password
+      DB_INIT_MAX_ATTEMPTS: 30
+      DB_INIT_DELAY_SECONDS: 2
     volumes:
       - myblog_data:/opt/myblog/data
     depends_on:
@@ -18,16 +23,20 @@ services:
   mysql_server:
     image: mysql:8.0
     container_name: mysql_server
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: nevertellyou
       MYSQL_DATABASE: myblog_db
+      MYSQL_USER: myblog_user
+      MYSQL_PASSWORD: myblog_password
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$$MYSQL_ROOT_PASSWORD --silent"]
       interval: 5s
       timeout: 10s
       retries: 5
+      start_period: 25s
 
 volumes:
   mysql_data:
